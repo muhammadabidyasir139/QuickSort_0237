@@ -61,7 +61,9 @@ void q_sort(int low, int high) {
     }
    }
 
-   
+   if (low < j) {
+    swap(low, j);
+   }
 }
 
 
