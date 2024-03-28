@@ -82,7 +82,7 @@ cout << "\n\nNumber of comparisons: " << cmp_count << endl;
 cout << "Number of data movements: " << mov_count << endl;
 }
 int main () {
-    chr ch;
+    char ch;
 
     do {
         input();
