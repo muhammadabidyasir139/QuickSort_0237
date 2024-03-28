@@ -73,7 +73,7 @@ void display() {
     cout << "\n--------------------" << endl;
     cout << "Sorted Array" << endl;
     cout << "\n--------------------" << endl;
-    
+
     for (int i = 0; i < n; i++) {
     cout << arr[i] << " ";
 }
@@ -81,15 +81,12 @@ void display() {
 cout << "\n\nNumber of comparisons: " << cmp_count << endl;
 cout << "Number of data movements: " << mov_count << endl;
 }
-
-
-
-
-
-
-
-
-
 int main () {
+    chr ch;
 
+    do {
+        input();
+        q_sort(0, n - 1);
+        display();
+    }
 }
