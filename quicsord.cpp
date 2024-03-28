@@ -4,7 +4,7 @@ using namespace std;
 // array of integers to hold values
 int arr[20];
 int cmp_count = 0;
-int mov_cpunt = 0;
+int mov_count = 0;
 int n;
 
 void input() {
@@ -22,7 +22,7 @@ void input() {
     cout << "\nEnter Array Element" << endl;
     cout << "\n-------------------" << endl;
 
-    for (int i = 0; i < n i++) {
+    for (int i = 0; i < n; i++) {
         cout << "<" << (i + 1) << ">";
         cin >> arr[i];
     }
@@ -36,39 +36,41 @@ void swap(int x, int y) {
     mov_count++;
 }
 
-void q_sort(int low, int high) {
+void q_short(int low, int high) {
     int temp;
     int pivot, i, j;
-    if (low > high) { //step 1
+    if (low > high)
         return;
-    }
 
     pivot = arr[low];
     i = low + 1;
     j = high;
-    while (i <= j) {
-    while((arr[i] <= pivot) && (i <= high)) {
-        i++;
+
+
+    while (i <= j) 
+    {
+        while ((arr[i] <= pivot) && (i <= high)) {
+            i++;
+            cmp_count++;
+        }
+        while ((arr[j] > pivot) && (j >= low)) {
+            j--;
+            cmp_count++;
+        }
         cmp_count++;
+        if (i < j) {
+            swap(i, j);
+        }
     }
-    cmp_count++;
-    if (i < j) {
-        swap(i,j);
+    if (low < j) {
+        swap(low, j);
     }
-    cmp_count++;
-    if (i < j) {
-        swap (i, j);
-    }
-   }
+    
 
-   if (low < j) {
-    swap(low, j);
-   }
-
-    q_sort(j + 1, high);
-
+    q_short(low, j - 1);
+    q_short(j + 1, high);
 }
-
+    
 void display() {
     cout << "\n--------------------" << endl;
     cout << "Sorted Array" << endl;
@@ -86,7 +88,7 @@ int main () {
 
     do {
         input();
-        q_sort(0, n - 1);
+        q_short(0, n - 1);
         display();
         cout << "\n\nDo you want to continue? (y/n): ";
         cin >> ch;
@@ -95,5 +97,6 @@ int main () {
         system("pause");
         system("cls");
     }while (true);
+
     return 0;
 }
