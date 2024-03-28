@@ -57,6 +57,10 @@ while (i <= j) {
     if (i < j) {
         swap(i,j);
     }
+    cmp_count++;
+    if (i < j) {
+        swap (i, j);
+    }
 }
 
 
